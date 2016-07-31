@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+  
+  <html>
+    <head>
+      <title>Countdown Timer</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    </head>
+    <body>
+    
+      <div class='countdown'></div>
+      
+      <script>
+      
+        $(function() {
+        
+          var allowedTime = 30;
+          var countdownHolder = $('.countdown');
+          var theS = "s";
+          
+          countdownHolder.text(allowedTime + " seconds left.");
+          
+          var timer = setInterval(function(){
+            
+            allowedTime--;
+            
+            if (allowedTime == 0) {
+              clearInterval(timer);
+            }
+            
+            if (allowedTime == 1) {
+              theS = "";
+            } else {
+              theS = "s";
+            }
+            
+            countdownHolder.text(allowedTime + " second" + theS + " left.");
+            
+          },1000);
+          
+        });
+        
+      </script>
+      
+    </body>
+  </html>
